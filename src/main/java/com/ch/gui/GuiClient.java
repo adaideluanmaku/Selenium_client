@@ -165,18 +165,21 @@ public class GuiClient extends JFrame implements ActionListener {
 		jLabel_1 = new JLabel("项目名:");
 		jLabel_1.setBounds(10, 10, 50, 25);
 		panel_1.add(jLabel_1);
-		final JTextArea jTextArea_1 = new JTextArea();
-		jTextArea_1.setBounds(60, 10, 80, 25);
-		panel_1.add(jTextArea_1);
+//		final JTextArea jTextArea_1 = new JTextArea();
+//		jTextArea_1.setBounds(60, 10, 80, 25);
+//		panel_1.add(jTextArea_1);
+		final JTextField textField_1 = new JTextField();
+		textField_1.setBounds(90, 10, 80, 25);
+		panel_1.add(textField_1);
 
 		jbtn1_1 = new JButton("查询");
-		jbtn1_1.setBounds(150, 10, 60, 25);
+		jbtn1_1.setBounds(180, 10, 60, 25);
 		jbtn1_1.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				List list = null;
 				// TODO Auto-generated method stub
 				try {
-					list = jdbcbean.project(jTextArea_1.getText().toString());
+					list = jdbcbean.project(textField_1.getText().toString());
 				} catch (Exception e1) {
 					System.out.println("查询失败");
 				}
@@ -185,7 +188,7 @@ public class GuiClient extends JFrame implements ActionListener {
 				panel_1.remove(scroll_1);
 				jTable_1 = myJTable(list, columnNames, columnNames_s);
 				scroll_1 = new JScrollPane(jTable_1);
-				scroll_1.setBounds(10, 40, 460, 400);
+				scroll_1.setBounds(10, 70, 460, 400);
 				panel_1.add(scroll_1);
 			}
 		});
@@ -195,21 +198,25 @@ public class GuiClient extends JFrame implements ActionListener {
 		 * 输入框
 		 */
 		jLabel_1 = new JLabel("浏览器路径:");
-		jLabel_1.setBounds(220, 10, 70, 25);
+		jLabel_1.setBounds(10, 40, 70, 25);
 		panel_1.add(jLabel_1);
-		final JTextArea jTextArea_2 = new JTextArea();
-		jTextArea_2.setBounds(300, 10, 80, 25);
-		panel_1.add(jTextArea_2);
+//		final JTextArea jTextArea_2 = new JTextArea();
+//		jTextArea_2.setBounds(90, 40, 280, 25);
+//		panel_1.add(jTextArea_2);
+		final JTextField textField_2 = new JTextField();
+		textField_2.setBounds(90, 40, 280, 25);
+		panel_1.add(textField_2);
+		
 
 		/**
 		 * 按钮操作
 		 */
 		jbtn1_2 = new JButton("测试");
-		jbtn1_2.setBounds(390, 10, 80, 25);
+		jbtn1_2.setBounds(380, 40, 80, 25);
 		jbtn1_2.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				if (table_values == 0 || "".equals(jTextArea_2.getText())) {
+				if (table_values == 0 || "".equals(textField_2.getText())) {
 					JOptionPane.showMessageDialog(null, "请选择测试数据或输入浏览器路径");
 					return;
 				}
@@ -219,7 +226,7 @@ public class GuiClient extends JFrame implements ActionListener {
 					//取消掉通过登录名查找浏览器路径
 //					userid = jdbcbean.userid(jTextArea_2.getText());
 //					String seleniumresult=selenium.autoall(table_values, userid);
-					String seleniumresult=selenium.autoall(table_values, jTextArea_2.getText());
+					String seleniumresult=selenium.autoall(table_values, textField_2.getText());
 					JOptionPane.showMessageDialog(null, seleniumresult,"测试结果", JOptionPane.INFORMATION_MESSAGE); 
 				} catch (Exception e1) {
 					System.out.println("userid获取失败或者测试失败");
@@ -241,7 +248,7 @@ public class GuiClient extends JFrame implements ActionListener {
 		}
 		jTable_1 = myJTable(list, columnNames, columnNames_s);
 		scroll_1 = new JScrollPane(jTable_1);
-		scroll_1.setBounds(10, 40, 460, 400);
+		scroll_1.setBounds(10, 70, 460, 400);
 		panel_1.add(scroll_1);
 
 		return panel_1;
@@ -257,9 +264,12 @@ public class GuiClient extends JFrame implements ActionListener {
 		jLabel_2 = new JLabel("案例名称/编号:");
 		jLabel_2.setBounds(10, 10, 100, 25);
 		panel_2.add(jLabel_2);
-		final JTextArea jTextArea_1 = new JTextArea();
-		jTextArea_1.setBounds(100, 10, 80, 25);
-		panel_2.add(jTextArea_1);
+//		final JTextArea jTextArea_1 = new JTextArea();
+//		jTextArea_1.setBounds(100, 10, 80, 25);
+//		panel_2.add(jTextArea_1);
+		final JTextField textField_1 = new JTextField();
+		textField_1.setBounds(100, 10, 80, 25);
+		panel_2.add(textField_1);
 
 		jbtn2_1 = new JButton("查询");
 		jbtn2_1.setBounds(190, 10, 60, 25);
@@ -272,7 +282,7 @@ public class GuiClient extends JFrame implements ActionListener {
 				// return;
 				// }
 				try {
-					list = jdbcbean.testmng(jTextArea_1.getText().toString());
+					list = jdbcbean.testmng(textField_1.getText().toString());
 				} catch (Exception e1) {
 					System.out.println("查询失败");
 				}
@@ -282,7 +292,7 @@ public class GuiClient extends JFrame implements ActionListener {
 				panel_2.remove(scroll_2);
 				jTable_2 = myJTable(list, columnNames1, columnNames_s1);
 				scroll_2 = new JScrollPane(jTable_2);
-				scroll_2.setBounds(10, 40, 460, 400);
+				scroll_2.setBounds(10, 70, 460, 400);
 				panel_2.add(scroll_2);
 			}
 		});
@@ -292,21 +302,24 @@ public class GuiClient extends JFrame implements ActionListener {
 		 * 输入框
 		 */
 		jLabel_2 = new JLabel("浏览器路径:");
-		jLabel_2.setBounds(260, 10, 80, 25);
+		jLabel_2.setBounds(10, 40, 80, 25);
 		panel_2.add(jLabel_2);
-		final JTextArea jTextArea_2 = new JTextArea();
-		jTextArea_2.setBounds(340, 10, 60, 25);
-		panel_2.add(jTextArea_2);
-
+//		final JTextArea jTextArea_2 = new JTextArea();
+//		jTextArea_2.setBounds(100, 40, 280, 25);
+//		panel_2.add(jTextArea_2);
+		final JTextField textField_2 = new JTextField();
+		textField_2.setBounds(100, 40, 280, 25);
+		panel_2.add(textField_2);
+		
 		/**
 		 * 按钮操作
 		 */
 		jbtn2_2 = new JButton("测试");
-		jbtn2_2.setBounds(410, 10, 60, 25);
+		jbtn2_2.setBounds(390, 40, 60, 25);
 		jbtn2_2.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				if (table_values == 0 || "".equals(jTextArea_2.getText())) {
+				if (table_values == 0 || "".equals(textField_2.getText())) {
 					JOptionPane.showMessageDialog(null, "请选择测试数据或输入浏览器路径");
 					return;
 				}
@@ -317,7 +330,7 @@ public class GuiClient extends JFrame implements ActionListener {
 //					int userid = jdbcbean.userid(jTextArea_2.getText());
 //					String seleniumresult=selenium.autoone(table_values, userid);
 					
-					String seleniumresult=selenium.autoone(table_values, jTextArea_2.getText());
+					String seleniumresult=selenium.autoone(table_values, textField_2.getText());
 					JOptionPane.showMessageDialog(null, seleniumresult,"测试结果", JOptionPane.INFORMATION_MESSAGE); 
 				} catch (Exception e1) {
 					System.out.println("userid获取失败或者测试失败");
@@ -340,7 +353,7 @@ public class GuiClient extends JFrame implements ActionListener {
 
 		jTable_2 = myJTable(list, columnNames1, columnNames_s1);
 		scroll_2 = new JScrollPane(jTable_2);
-		scroll_2.setBounds(10, 40, 460, 400);
+		scroll_2.setBounds(10, 70, 460, 400);
 		panel_2.add(scroll_2);
 
 		return panel_2;
