@@ -548,7 +548,7 @@ public class Selenium {
 				FileUtils.copyFile(screenshot, new File("C:/test.jpg"));//selenium截取的页面图片
 				
 				//开始对比图片相似度
-				File fileInput = new File("C:/ch.jpg");//断言，预期图片
+				File fileInput = new File("C:/ch.jpg");//断言，预期结果的图片
 				File fileOutput = new File("C:/test.jpg");//selenium截取的页面图片
 
 				String image1;
