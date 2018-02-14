@@ -19,7 +19,7 @@ import javax.imageio.ImageIO;
  * @website http://www.jebysun.com
  */
 public class ImageTestDemo {
-	private int size = 32;//图片大小
+	private int size = 32;//32，图片大小,如果要增加检测范围，可提高这个数值
 	private int smallerSize = 8;
 
 	public ImageTestDemo() {  
